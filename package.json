@@ -1,0 +1,82 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+        "spec": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+        "type": "directory"
+      },
+      "/home/will/Desktop/dev/nodbot"
+    ]
+  ],
+  "_from": "node_modules/beaglebone-io",
+  "_id": "beaglebone-io@1.3.0",
+  "_inCache": true,
+  "_location": "/beaglebone-io",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+    "spec": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "file:node_modules/beaglebone-io",
+  "_shasum": "db35e8e930f2bdc767f12f24d71d1946d25fb8ed",
+  "_shrinkwrap": null,
+  "_spec": "/home/will/Desktop/dev/nodbot/node_modules/beaglebone-io",
+  "_where": "/home/will/Desktop/dev/nodbot",
+  "author": {
+    "name": "Julian Duque",
+    "email": "julianduquej@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/julianduque/beaglebone-io/issues"
+  },
+  "dependencies": {
+    "bonescript": "^0.5.0",
+    "i2c-bus": "^1.1.2"
+  },
+  "description": "BeagleBone Black IO Plugin for Johnny-Five",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsbeautifier": "^0.2.7",
+    "nodeunit": "^0.9.0",
+    "rewire": "^2.1.0",
+    "sinon": "^1.10.3"
+  },
+  "gitHead": "5988ba12930f135c6bab16b317c1c6219bb1a69a",
+  "homepage": "https://github.com/julianduque/beaglebone-io",
+  "keywords": [
+    "firmata",
+    "beaglebone",
+    "johnny-five"
+  ],
+  "license": "MIT",
+  "main": "lib/beaglebone",
+  "name": "beaglebone-io",
+  "optionalDependencies": {},
+  "readme": "# BeagleBone-IO\nBeagleBone Black IO Plugin for Johnny-Five\n\nHeavily based on [Galileo-IO](https://github.com/rwaldron/galileo-io) by [Rick Waldron](https://github.com/rwaldron)\n\n## Install\n\n```\n$ npm install beaglebone-io\n```\n\nFor the best user experience with BeagleBone-IO the recommended Operating\nSystem is [Debian](http://beagleboard.org/latest-images). Debian supports\nthe runtime modification of the Device Tree which is a feature required\nby BeagleBone-IO. If a directory matching the pattern\n`/sys/devices/bone_capemgr.*` exists, the required support is available.\n\n## Usage\n\n``` js\nvar BeagleBone = require('beaglebone-io');\nvar board = new BeagleBone();\n\nboard.on('ready', function () {\n  this.digitalWrite(13, this.HIGH);\n  this.analogRead('A0', function (value) {\n    console.log(value);\n  });\n});\n\n```\n\nWith Johnny-Five\n``` js\nvar five = require('johnny-five');\nvar BeagleBone = require('beaglebone-io');\n\nvar board = new five.Board({ \n  io: new BeagleBone()\n});\n\nboard.on('ready', function () {\n  var led = new five.Led();\n  led.blink();\n  \n  this.repl.inject({ led: led });\n});\n```\n\n## Pin Mappings\n\nBeagleBone Black to Arduino UNO\n\n| BBB Port | Arduino Pin | Type |\n|----------|-------------|------|\n|P8_7|0|Digital|\n|P8_8|1|Digital|\n|P8_9|2|Digital|\n|P8_13|3|PWM|\n|P8_10|4|Digital|\n|P9_14|5|PWM|\n|P9_16|6|PWM|\n|P8_11|7|Digital|\n|P8_12|8|Digital|\n|P9_21|9|PWM|\n|P9_42|10|PWM|\n|P8_19|11|PWM|\n|P8_14|12|Digital|\n|USR3|13|Digital / Default Led|\n|P9_39|A0|Analog Input|\n|P9_40|A1|Analog Input|\n|P9_37|A2|Analog Input|\n|P9_38|A3|Analog Input|\n|P9_35|A4|Analog Input|\n|P9_36|A5|Analog Input|\n\nFor I2C:\n\n| BBB Port   | Type     |\n| ---------- | -------- |\n| P9_20      | I2C SDA  |\n| P9_19      | I2C SCL  |\n\n## The MIT License (MIT)\n\nCopyright (c) Julian Duque, Alan Yorinks, Brian Cooke 2014\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianduque/beaglebone-io.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "version": "1.3.0"
+}
